@@ -4,7 +4,9 @@
         "cflags!": [ "-fno-exceptions" ],
         "cflags_cc!": [ "-fno-exceptions" ],
         "sources": [
-            "src/main.cpp",
+            "src/bindings.cc",
+            "src/worker.cc",
+            "src/windoweventhandler.cc",
         ],
         'include_dirs': [
             "<!@(node -p \"require('node-addon-api').include\")"
