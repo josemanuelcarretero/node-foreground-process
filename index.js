@@ -1,2 +1,3 @@
-let native = require('bindings')('native')
-console.log(native.helloworld())
+let native = require('bindings')('native');
+
+module.exports = native;
