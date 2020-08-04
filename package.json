@@ -1,7 +1,7 @@
 {
-  "name": "node-focused-process",
+  "name": "foreground-process",
   "description": "Library to get the program that is focused for the technical test",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "license": "CC-BY-NC-4.0",
   "gypfile": true,
