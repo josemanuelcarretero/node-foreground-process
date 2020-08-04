@@ -1,5 +1,5 @@
 {
-  "name": "node-focused-process",
+  "name": "foreground-process",
   "description": "Library to get the program that is focused for the technical test",
   "version": "0.0.1",
   "main": "index.js",
