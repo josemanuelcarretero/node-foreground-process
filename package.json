@@ -9,7 +9,7 @@
     "build": "node-gyp build",
     "rebuild": "node-gyp rebuild",
     "start": "node index.js",
-    "test": "mocha lib/**/**.spec.js"
+    "test": "mocha --exit lib/**/**.spec.js"
   },
   "dependencies": {
     "bindings": "^1.2.1",
