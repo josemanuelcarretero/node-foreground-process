@@ -1,9 +1,8 @@
 #include <napi.h>
 #include <windows.h>
 #include <iostream>
-#include "WindowEventHandler.h"
-#include "Worker.h"
-
+//#include "WindowEventHandler.h"
+#include "ThreadWorker.h"
 
 void StartAsyncCallback(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
@@ -18,12 +17,7 @@ void StartAsyncCallback(const Napi::CallbackInfo &info) {
         return;
     }
 
-    if (FocusedProcessNativeAPI::WindowEventHandler::getInstance()->isRunning()) {
-        Napi::Error::New(env, "Already running").ThrowAsJavaScriptException();
-        return;
-    }
-
-    FocusedProcessNativeAPI::WindowEventHandler::getInstance()->start(info);
+    ThreadWorker::getInstance()->start(info);
 
     return;
 }
@@ -31,12 +25,7 @@ void StartAsyncCallback(const Napi::CallbackInfo &info) {
 void StopAsyncCallback(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
 
-    if (!FocusedProcessNativeAPI::WindowEventHandler::getInstance()->isRunning()) {
-        Napi::Error::New(env, "Not running").ThrowAsJavaScriptException();
-        return;
-    }
-    FocusedProcessNativeAPI::WindowEventHandler::getInstance()->stop();
-
+    ThreadWorker::getInstance()->stop(info);
 }
 
 Napi::Object Init(Napi::Env env, Napi::Object exports) {
